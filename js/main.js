@@ -76,10 +76,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#register-form").submit(function (e) {
     e.preventDefault();
-    // var first_name = $('#first_name').val();
-    // var last_name = $('#last_name').val();
-    // var email = $('#email').val();
-    // var password = $('#password').val();
+ 
     var mainVal = {
       fname: $("#fname").val(),
       email: $("#email").val(),
@@ -111,13 +108,7 @@ $(document).ready(function () {
     if (email.length < 1) {
       $("#email").after('<span class="error">This field is required</span>');
     }
-    // else {
-    //   var regEx = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
-    //   var validEmail = regEx.test(email);
-    //   if (!validEmail) {
-    //     $('#email').after('<span class="error">Enter a valid email</span>');
-    //   }
-    // }
+
 
     if (development.length < 1) {
       $("#development").after(
@@ -175,9 +166,7 @@ $(document).ready(function () {
       );
     }
 
-    // if(footerVal.email.length < 1  ) {
-    //   alert("Please enter a valid email")
-    // }
+
     else {
       $.ajax({
         type: "POST",
@@ -192,4 +181,15 @@ $(document).ready(function () {
       });
     }
   });
+});
+
+
+
+$(document).ready(function () {
+  // animation hide loader after reload preloader
+  $(".overlay, body").addClass("loaded");
+  setTimeout(function () {
+    $(".overlay").css({ display: "none" });
+    $(".overlay").delay(2000).fadeOut("slow");
+  }, 2000);
 });

@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="./css/intlTelInput.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body class="webapp">
@@ -1475,8 +1474,11 @@
     <!-- ===================   whatsapp  ============================ -->
 
     <div class="whatsapp-main">
-        <a class="whatsApp" href="https://api.whatsapp.com/send?phone=+447770777405" method="get" target="_blank"><i style="padding: 12px" class="bi bi-whatsapp whatsAppIcon"></i>  
+        <a class="whatsApp"   href="https://wa.me/+447770777405"  href="https://api.whatsapp.com/send?phone=+447770777405" method="get" target="_blank"><i style="padding: 12px" class="bi bi-whatsapp whatsAppIcon"></i>  
         </a>
+
+        <!-- <a class="whatsApp"   href="https://api.whatsapp.com/send?phone=+447770777405" method="get" target="_blank"><i style="padding: 12px" class="bi bi-whatsapp whatsAppIcon"></i>  
+        </a> -->
         <span>Chat with us NOW</span>
       </div>
 
@@ -1487,17 +1489,10 @@
     <!-- ======================    whatsapp  end   ============================= -->
 
 
-
-
-
-
-
-
-
-    <script src="/js/intlTelInput.js"></script>
+    <script src="./js/intlTelInput.js"></script>
     
 
-    <script src="/js/main.js"></script>
+    <script src="./js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script>
       // Vanilla Javascript
@@ -1531,7 +1526,197 @@
 });
 </script>
 
+<script>
+    $(document).ready(function () {
+  $("form").submit(function (event) {
+    var formData = {
+      name: $("#name").val(),
+      email: $("#email").val(),
+      superheroAlias: $("#superheroAlias").val(),
+    };
 
+    $.ajax({
+      type: "POST",
+      url: "process.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      console.log(data);
+    });
+
+    event.preventDefault();
+  });
+});
+
+// nav bar
+
+$(window).scroll(function () {
+  var sticky = $(".sticky"),
+    scroll = $(window).scrollTop();
+
+  if (scroll >= 100) sticky.addClass("fixed");
+  else sticky.removeClass("fixed");
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+  // animation hide loader after reload preloader
+  $("#name").keyup(function () {
+    var value = $("#name").val();
+    console.log(value.length);
+    if (value.length > "0") {
+      console.log("ram");
+      $("#name_validation").hide();
+    } else {
+      $("#name_validation").show();
+    }
+  });
+  $(".overlay, body").addClass("loaded");
+  setTimeout(function () {
+    $(".overlay").css({ display: "none" });
+    $(".overlay").delay(2000).fadeOut("slow");
+  }, 2000);
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+  // animation hide loader after reload preloader
+  $("#name").keyup(function () {
+    var value = $("#name").val();
+    console.log(value.length);
+    if (value.length > "0") {
+      console.log("ram");
+      $("#name_validation").hide();
+    } else {
+      $("#name_validation").show();
+    }
+  });
+  $(".overlay, body").addClass("loaded");
+  setTimeout(function () {
+    $(".overlay").css({ display: "none" });
+    $(".overlay").delay(2000).fadeOut("slow");
+  }, 2000);
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+  $("#register-form").submit(function (e) {
+    e.preventDefault();
+ 
+    var mainVal = {
+      fname: $("#fname").val(),
+      email: $("#email").val(),
+      phone: $("#phone").val(),
+      development: $("#development").val(),
+      description: $("#description").val(),
+    };
+
+    $(".error").remove();
+
+    if (fname.length < 1) {
+      $("#fname").after(
+        '<span class="error" id="name_validation">This field is required</span>'
+      );
+    }
+
+    if (phone.length < 1) {
+      $("#phone").after(
+        '<span class="error" id="name_validation">This field is required</span>'
+      );
+    }
+
+    if (phone.length > 9) {
+      $("#phone").after(
+        '<span class="error" id="name_validation">please enter 10 digit number</span>'
+      );
+    }
+
+    if (email.length < 1) {
+      $("#email").after('<span class="error">This field is required</span>');
+    }
+
+
+    if (development.length < 1) {
+      $("#development").after(
+        '<span class="error" >This field is required</span>'
+      );
+    }
+
+    if (description.length < 1) {
+      $("#description").after(
+        '<span class="error">This field is required</span>'
+      );
+    }
+
+    if (
+      mainVal.fname.length < 1 ||
+      mainVal.email.length < 1 ||
+      mainVal.phone.length < 1
+    ) {
+      alert("please enter valid value");
+      return false;
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "https://api.webapp.world/userDetailes",
+        data: mainVal,
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        $(this).prop("disabled", true);
+        $("#register-form").prop("disabled", false);
+        console.log(data);
+        alert("email submit successful");
+      });
+
+      alert("else part");
+      console.log(mainVal);
+    }
+  });
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+  $("#footerform").submit(function (e) {
+    e.preventDefault();
+    var footerVal = {
+      email: $("#footeremail").val(),
+    };
+
+    $(".error").remove();
+
+    if (email.length < 1) {
+      $("#footeremail").after(
+        '<span class="error">This field is required</span>'
+      );
+    }
+
+
+    else {
+      $.ajax({
+        type: "POST",
+        url: "https://api.webapp.world/userMail",
+        data: footerVal,
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        $(this).prop("disabled", true);
+        console.log(data);
+        alert("Form submit successful");
+      });
+    }
+  });
+});
+
+</script>
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 </body>
 

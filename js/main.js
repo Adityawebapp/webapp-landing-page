@@ -34,6 +34,7 @@ $(window).scroll(function () {
 
 
 
+// =============================
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     if (window.scrollY > 50) {
@@ -51,18 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // contact form
 
-
 $(document).ready(function () {
   // animation hide loader after reload preloader
-  $("#name").keyup(function(){
-   var value = $("#name").val();
-    console.log(value.length)
-    if(value.length > '0'){
-      console.log("ram")
+  $("#name").keyup(function () {
+    var value = $("#name").val();
+    console.log(value.length);
+    if (value.length > "0") {
+      console.log("ram");
       $("#name_validation").hide();
-    }else{
+    } else {
       $("#name_validation").show();
-
     }
   });
   $(".overlay, body").addClass("loaded");
@@ -71,8 +70,6 @@ $(document).ready(function () {
     $(".overlay").delay(2000).fadeOut("slow");
   }, 2000);
 });
-
-
 
 // ==================
 
@@ -91,20 +88,24 @@ $(document).ready(function () {
       description: $("#description").val(),
     };
 
-
-
     $(".error").remove();
 
     if (fname.length < 1) {
-      $("#fname").after('<span class="error" id="name_validation">This field is required</span>');
+      $("#fname").after(
+        '<span class="error" id="name_validation">This field is required</span>'
+      );
     }
 
     if (phone.length < 1) {
-      $("#phone").after('<span class="error" id="name_validation">This field is required</span>');
+      $("#phone").after(
+        '<span class="error" id="name_validation">This field is required</span>'
+      );
     }
 
     if (phone.length > 9) {
-      $("#phone").after('<span class="error" id="name_validation">please enter 10 digit number</span>');
+      $("#phone").after(
+        '<span class="error" id="name_validation">please enter 10 digit number</span>'
+      );
     }
 
     if (email.length < 1) {
@@ -130,10 +131,14 @@ $(document).ready(function () {
       );
     }
 
-    if (mainVal.fname.length < 1 || mainVal.email.length < 1 ||  mainVal.phone.length < 1)  {
-     alert("please enter valid value")
-     return false
-    }else{
+    if (
+      mainVal.fname.length < 1 ||
+      mainVal.email.length < 1 ||
+      mainVal.phone.length < 1
+    ) {
+      alert("please enter valid value");
+      return false;
+    } else {
       $.ajax({
         type: "POST",
         url: "https://api.webapp.world/userDetailes",
@@ -141,55 +146,39 @@ $(document).ready(function () {
         dataType: "json",
         encode: true,
       }).done(function (data) {
-        $(this).prop('disabled', true); 
+        $(this).prop("disabled", true);
         $("#register-form").prop("disabled", false);
         console.log(data);
-        alert("email submit successful")
+        alert("email submit successful");
       });
-      
-     alert("else part")
-     console.log(mainVal);
-      
+
+      alert("else part");
+      console.log(mainVal);
     }
-
-  
-
-
-
   });
-
-
 });
 
-
-
-// for footer api calling form  
-
+// for footer api calling form
 
 $(document).ready(function () {
   $("#footerform").submit(function (e) {
     e.preventDefault();
     var footerVal = {
       email: $("#footeremail").val(),
-
     };
-
-
 
     $(".error").remove();
 
-
-
     if (email.length < 1) {
-      $("#footeremail").after('<span class="error">This field is required</span>');
+      $("#footeremail").after(
+        '<span class="error">This field is required</span>'
+      );
     }
 
-
-
-    if(footerVal.email.length < 1  ) {
-      alert("Please enter a valid email")
-    }
-    else{
+    // if(footerVal.email.length < 1  ) {
+    //   alert("Please enter a valid email")
+    // }
+    else {
       $.ajax({
         type: "POST",
         url: "https://api.webapp.world/userMail",
@@ -197,22 +186,10 @@ $(document).ready(function () {
         dataType: "json",
         encode: true,
       }).done(function (data) {
-       $(this).prop('disabled', true); 
+        $(this).prop("disabled", true);
         console.log(data);
-        alert("Form submit successful")
-  
-  
+        alert("Form submit successful");
       });
     }
-
-
-
-
-
-    
-
- 
   });
-
-
 });

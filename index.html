@@ -46,7 +46,7 @@
 
 
 
-    <div class="web-app-menu fixed-top" id="navbar_top">
+    <div class="web-app-menu" >
         <section class="top-header">
             <div class="tph-10">
 
@@ -77,7 +77,7 @@
         </section>
 
 
-        <header class="main-menu ">
+        <header class="main-menu " id="navbar_top">
             <nav class="navbar navbar-expand-lg" id="main-head">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#"><img src="images/logo.png" width="140px"></a>
@@ -108,12 +108,25 @@
 
 
     <section class="hero-sec">
-        <img class="hero-image" src="images/latest-technologies.png" width="100%" style="height:100vh;">
-        <div class="image-overlay">
-            <h3 class="over-text">Taking your<br>business to <span class="tnl1 position-relative">the next level</span>
-            </h3>
-        </div>
+        <img class="hero-image" src="images/home_logo.jpg">
+        <div class="image-overlay text-white">
+            <!-- <h3 class="over-text">Taking your<br>business to <span class="tnl1 position-relative">the next level</span>
+            </h3> -->
 
+            
+
+
+    <div class="container h-100">
+   <div class="row align-items-center justify-content-start h-100 text-sm-center text-lg-start text-md-start">
+    <div class="col-lg-6 col-md-6 col-sm-12 home_text">
+       <h3 class=" fw-bolder">taking your business to the next level.</h3>
+       <p style="font-size:1.3rem;color: rgb(255, 255, 255);">We Successfully Deliver Mobile Apps, Websites, and Games that are fully customisable and created specifically to your requirements.</p>
+       <p style="font-size:1.1rem;color: rgb(255, 255, 255);">We always strive for excellence with each and every Mobile App and Website we build.</p>
+      <a href="#contact-sec"><button class="btn btn-danger mt-3">Get In Touch</button></a> 
+    </div>
+   </div>
+</div>
+        </div>
     </section>
 
     <section class="" id="about-us">
@@ -1202,14 +1215,14 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="mb-3">
-                                    <input class="g-inputForm-design" formcontrolname="full_name" id="fname"
+                                    <input class="g-inputForm-design" formcontrolname="full_name" id="name"
                                         placeholder="Full Name*" type="text">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="mb-3">
-                                    <input class="g-inputForm-design" formcontrolname="email" id="email"
-                                        placeholder="Email Address*" type="email">
+                                    <input class="g-inputForm-design"  id="emailData"
+                                        placeholder="Email Address*" type="email" required>
                                 </div>
                             </div>
                         </div>
@@ -1217,17 +1230,18 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="mb-3 d-flex">
                                    
-                                        <input id="phone" class="g-inputForm-design" name="phone" type="tel">
+                                        <input id="phone" class="g-inputForm-design" name="phone" minlength="10"  maxlength="14" type="tel" required>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 
-                                <select class="form-select g-inputForm-design " aria-label="Default select example" id="development"> 
+                                <select class="form-select g-inputForm-design " aria-label="Default select example" id="development" required> 
                                     <option class="bg-info" selected disabled>Which service are you looking for?</option>
                                     <option value="Mobile App development">IOS App Development</option>
                                     <option value="iphone App Development">Android App Development</option>
                                     <option value="Flutter App Development">Flutter App Development</option>
 
+                                    <option value="Web Development">Web Development</option>
                                     <option value="ReactJs Development">ReactJs Development</option>
                                     <option value="Angular Development">Angular Development</option>
                                     <option value="Php Development">Php Development</option>
@@ -1253,12 +1267,41 @@
                                     
                                 </select>
                             </div>
+
+                            <!-- ================================================== -->
+
+                            <div class="col-md-6 col-sm-12 mb-4 ">
+                                <select
+                                class="form-select g-inputForm-design " 
+                                aria-label="What's your budget"
+                                id="budget" required
+                              >
+                                <option disabled className="bg-info text-white" selected>
+                                  Select your budget
+                                </option>
+                                <option value="Less then $10kLess then $10k">
+                                  Less then $10kLess then $10k
+                                </option>
+                                <option value="Less then $10k to $50k">
+                                  Less then $10k to $50k
+                                </option>
+                                <option value="Less then $50k to $100">
+                                  Less then $50k to $100
+                                </option>
+                                <option value="More then $100k">More then $100k</option>
+                              </select>
+                                <!-- ===================== -->
+                               
+                              </div>
+
+
+                            <!-- ======================================================================== -->
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
                                     <textarea class="form-control" formcontrolname="description" id="description"
-                                        placeholder="Message" style="height: 158px;"></textarea>
+                                        placeholder="Message" style="height: 158px;" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1432,7 +1475,7 @@
                     <p class="mb-2 text-white fw-100"> Stay connected with our latest insights </p>
                     <div class="rounded border subscribe-form">
                         <form id="footerform" novalidate="novalidate">
-                            <input id="footeremail"  name="email" placeholder="Email Address" type="email"
+                            <input  id="footeremail"  name="email" type="email"
                                 class="em-inpt" id="email" required>
                             <button type="submit" class="sbfrm-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="30" fill="#fff">
@@ -1479,41 +1522,62 @@
         <span>Chat with us now</span>
       </div>
 
+    <!-- ======================    whatsapp  end  ============================= -->
 
-      
+    <!-- ========================================== -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content ">
+            <div class="modal-header border-0">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <h1 class="fs-5 text-muted">Thank You For Contacting Us. We will get back to you within working hours.</h1>
+            </div>
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- ======================    whatsapp  end   ============================= -->
-
-
-    <script src="./js/intlTelInput.js"></script>
-    
-
-    <script src="./js/main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script>
-      // Vanilla Javascript
-      var input = document.querySelector("#phone");
-      window.intlTelInput(input,({
-        // options here
-      }));
-   
-      $(document).ready(function() {
-          $('.iti__flag-container').click(function() { 
-          
-            var countryCode = $('.iti__selected-flag').attr('title');
-            console.log(countryCode)
-
-            var countryCode = countryCode.replace(/[^0-9]/g,'')
-            $('#phone').val("");
-            $('#phone').val("+"+countryCode+" "+ $('#phone').val());
-         });
-      });
-    </script>
+    <!-- ================================================ -->
 
 
-<script>
-    $(document).ready(function () {
+    <script type="text/javascript" src="./js/intlTelInput.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/main.js"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+
+    <script>
+        // Vanilla Javascript
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input,({
+          // options here
+        }));
+     
+        $(document).ready(function() {
+            $('.iti__flag-container').click(function() { 
+            
+              var countryCode = $('.iti__selected-flag').attr('title');
+              console.log(countryCode)
+  
+              var countryCode = countryCode.replace(/[^0-9]/g,'')
+              $('#phone').val("");
+              $('#phone').val("+"+countryCode+" "+ $('#phone').val());
+           });
+        });
+      </script>
+
+    <script>
+        
+//  animation preloader timeout function 
+ $(document).ready(function () {
   // animation hide loader after reload preloader
   $(".overlay, body").addClass("loaded");
   setTimeout(function () {
@@ -1521,29 +1585,22 @@
     $(".overlay").delay(2000).fadeOut("slow");
   }, 2000);
 });
-</script>
 
-<script>
-    $(document).ready(function () {
-  $("form").submit(function (event) {
-    var formData = {
-      name: $("#name").val(),
-      email: $("#email").val(),
-      superheroAlias: $("#superheroAlias").val(),
-    };
 
-    $.ajax({
-      type: "POST",
-      url: "process.php",
-      data: formData,
-      dataType: "json",
-      encode: true,
-    }).done(function (data) {
-      console.log(data);
-    });
 
-    event.preventDefault();
-  });
+
+
+
+
+
+//  animation preloader timeout function 
+ $(document).ready(function () {
+  // animation hide loader after reload preloader
+  $(".overlay, body").addClass("loaded");
+  setTimeout(function () {
+    $(".overlay").css({ display: "none" });
+    $(".overlay").delay(2000).fadeOut("slow");
+  }, 2000);
 });
 
 // nav bar
@@ -1555,10 +1612,28 @@ $(window).scroll(function () {
   if (scroll >= 100) sticky.addClass("fixed");
   else sticky.removeClass("fixed");
 });
-</script>
 
-<script>
-    $(document).ready(function () {
+// ==========  preloding page ===========
+
+// =============================
+document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      document.getElementById("navbar_top").classList.add("fixed-top");
+      // add padding top to show content behind navbar
+      navbar_height = document.querySelector(".web-app-menu").offsetHeight;
+      document.body.style.paddingTop = navbar_height + "px";
+    } else {
+      document.getElementById("navbar_top").classList.remove("fixed-top");
+      // remove padding top from body
+      document.body.style.paddingTop = "0";
+    }
+  });
+});
+
+// contact form
+
+$(document).ready(function () {
   // animation hide loader after reload preloader
   $("#name").keyup(function () {
     var value = $("#name").val();
@@ -1576,46 +1651,30 @@ $(window).scroll(function () {
     $(".overlay").delay(2000).fadeOut("slow");
   }, 2000);
 });
-</script>
 
-<script>
-    $(document).ready(function () {
-  // animation hide loader after reload preloader
-  $("#name").keyup(function () {
-    var value = $("#name").val();
-    console.log(value.length);
-    if (value.length > "0") {
-      console.log("ram");
-      $("#name_validation").hide();
-    } else {
-      $("#name_validation").show();
-    }
-  });
-  $(".overlay, body").addClass("loaded");
-  setTimeout(function () {
-    $(".overlay").css({ display: "none" });
-    $(".overlay").delay(2000).fadeOut("slow");
-  }, 2000);
-});
-</script>
+// ==================
 
-<script>
-    $(document).ready(function () {
+$(document).ready(function () {
   $("#register-form").submit(function (e) {
     e.preventDefault();
- 
+
     var mainVal = {
-      fname: $("#fname").val(),
-      email: $("#email").val(),
-      phone: $("#phone").val(),
-      development: $("#development").val(),
-      description: $("#description").val(),
+      Name: $("#name").val(),
+      Email: $("#emailData").val(),
+      Phone: $("#phone").val(),
+      Development: $("#development").val(),
+      Description: $("#description").val(),
+      Budget: $("#budget").val(),
     };
+
+    console.log(mainVal)
+
+    // $('#staticBackdrop').modal('show');
 
     $(".error").remove();
 
-    if (fname.length < 1) {
-      $("#fname").after(
+    if (name.length) {
+      $("#name").after(
         '<span class="error" id="name_validation">This field is required</span>'
       );
     }
@@ -1632,10 +1691,11 @@ $(window).scroll(function () {
       );
     }
 
-    if (email.length < 1) {
-      $("#email").after('<span class="error">This field is required</span>');
+    if (emailData.length < 1) {
+      $("#email").after(
+        '<span class="error">This field is required</span>'
+      );
     }
-
 
     if (development.length < 1) {
       $("#development").after(
@@ -1649,36 +1709,33 @@ $(window).scroll(function () {
       );
     }
 
-    if (
-      mainVal.fname.length < 1 ||
-      mainVal.email.length < 1 ||
-      mainVal.phone.length < 1
-    ) {
-      alert("please enter valid value");
-      return false;
-    } else {
-      $.ajax({
-        type: "POST",
-        url: "https://api.webapp.world/userDetailes",
-        data: mainVal,
-        dataType: "json",
-        encode: true,
-      }).done(function (data) {
-        $(this).prop("disabled", true);
-        $("#register-form").prop("disabled", false);
-        console.log(data);
-        alert("email submit successful");
-      });
-
-      alert("else part");
-      console.log(mainVal);
+    if (budget.length < 1) {
+      $("#budget").after(
+        '<span class="error">This field is required</span>'
+      );
     }
+
+  
+
+    $.ajax({
+      type: "POST",
+      url: "http://3.9.246.8/api/common/email-form",
+      data: mainVal,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      $(this).prop("disabled", true);
+      $("#register-form").prop("disabled", false);
+      console.log(data);
+      swal("Submitted ", "Thank You For Contacting Us. We will get back to you within working hours.", "success");
+
+      console.log(mainVal);
+    });
   });
 });
-</script>
 
-<script>
-    $(document).ready(function () {
+// for footer email api calling form
+$(document).ready(function () {
   $("#footerform").submit(function (e) {
     e.preventDefault();
     var footerVal = {
@@ -1687,34 +1744,54 @@ $(window).scroll(function () {
 
     $(".error").remove();
 
-    if (email.length < 1) {
-      $("#footeremail").after(
-        '<span class="error">This field is required</span>'
-      );
-    }
-
-
-    else {
+ 
       $.ajax({
         type: "POST",
-        url: "https://api.webapp.world/userMail",
+        url: "http://3.9.246.8/api/common/email-form",
         data: footerVal,
         dataType: "json",
         encode: true,
       }).done(function (data) {
         $(this).prop("disabled", true);
         console.log(data);
-        alert("Form submit successful");
+        swal("success!", "mail send!");
       });
-    }
+
   });
 });
 
-</script>
 
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+// $('form[id="footerform"]').validate({
 
+
+//   rules: {
+//     email: {
+//       required: true,
+//       email: true,
+//     },
+//   },
+//   messages: {
+//     user_email: 'Enter a valid email',
+
+//   },
+//   submitHandler: function(form) {
+//     form.submit(e);
+//     console.log(e,"sgasdg")
+//   }
+// });
+
+
+$(document).ready(function () {
+  // animation hide loader after reload preloader
+  $(".overlay, body").addClass("loaded");
+  setTimeout(function () {
+    $(".overlay").css({ display: "none" });
+    $(".overlay").delay(2000).fadeOut("slow");
+  }, 2000);
+});
+
+    </script>
 </body>
 
 </html>

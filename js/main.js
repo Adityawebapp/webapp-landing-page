@@ -1,23 +1,34 @@
-$(document).ready(function () {
-  $("form").submit(function (event) {
-    var formData = {
-      name: $("#name").val(),
-      email: $("#email").val(),
-      superheroAlias: $("#superheroAlias").val(),
-    };
 
-    $.ajax({
-      type: "POST",
-      url: "process.php",
-      data: formData,
-      dataType: "json",
-      encode: true,
-    }).done(function (data) {
-      console.log(data);
+
+
+ // conunrty mobile number code
+ var input = document.querySelector("#phone");
+ window.intlTelInput(input,({
+   // options here
+ }));
+
+ $(document).ready(function() {
+     $('.iti__flag-container').click(function() { 
+     
+       var countryCode = $('.iti__selected-flag').attr('title');
+       console.log(countryCode)
+
+       var countryCode = countryCode.replace(/[^0-9]/g,'')
+       $('#phone').val("");
+       $('#phone').val("+"+countryCode+" "+ $('#phone').val());
     });
+ });
 
-    event.preventDefault();
-  });
+
+
+//  animation preloader timeout function 
+ $(document).ready(function () {
+  // animation hide loader after reload preloader
+  $(".overlay, body").addClass("loaded");
+  setTimeout(function () {
+    $(".overlay").css({ display: "none" });
+    $(".overlay").delay(2000).fadeOut("slow");
+  }, 2000);
 });
 
 // nav bar
@@ -31,8 +42,6 @@ $(window).scroll(function () {
 });
 
 // ==========  preloding page ===========
-
-
 
 // =============================
 document.addEventListener("DOMContentLoaded", function () {
@@ -76,14 +85,16 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#register-form").submit(function (e) {
     e.preventDefault();
- 
+
     var mainVal = {
       fname: $("#fname").val(),
-      email: $("#email").val(),
+      email: $("#emailData").val(),
       phone: $("#phone").val(),
       development: $("#development").val(),
       description: $("#description").val(),
     };
+
+    console.log(mainVal);
 
     $(".error").remove();
 
@@ -105,10 +116,11 @@ $(document).ready(function () {
       );
     }
 
-    if (email.length < 1) {
-      $("#email").after('<span class="error">This field is required</span>');
+    if (emailData.length < 1) {
+      $("#emailData").after(
+        '<span class="error">This field is required</span>'
+      );
     }
-
 
     if (development.length < 1) {
       $("#development").after(
@@ -122,30 +134,19 @@ $(document).ready(function () {
       );
     }
 
-    if (
-      mainVal.fname.length < 1 ||
-      mainVal.email.length < 1 ||
-      mainVal.phone.length < 1
-    ) {
-      alert("please enter valid value");
-      return false;
-    } else {
-      $.ajax({
-        type: "POST",
-        url: "https://api.webapp.world/userDetailes",
-        data: mainVal,
-        dataType: "json",
-        encode: true,
-      }).done(function (data) {
-        $(this).prop("disabled", true);
-        $("#register-form").prop("disabled", false);
-        console.log(data);
-        alert("email submit successful");
-      });
-
-      alert("else part");
+    $.ajax({
+      type: "POST",
+      url: "http://3.9.246.8/common/email-form",
+      data: mainVal,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      $(this).prop("disabled", true);
+      $("#register-form").prop("disabled", false);
+      console.log(data);
+      alert("email submit successful");
       console.log(mainVal);
-    }
+    });
   });
 });
 
@@ -164,13 +165,10 @@ $(document).ready(function () {
       $("#footeremail").after(
         '<span class="error">This field is required</span>'
       );
-    }
-
-
-    else {
+    } else {
       $.ajax({
         type: "POST",
-        url: "https://api.webapp.world/userMail",
+        url: "http://3.9.246.8/common/email-form",
         data: footerVal,
         dataType: "json",
         encode: true,
@@ -182,8 +180,6 @@ $(document).ready(function () {
     }
   });
 });
-
-
 
 $(document).ready(function () {
   // animation hide loader after reload preloader

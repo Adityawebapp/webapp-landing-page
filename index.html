@@ -1211,7 +1211,7 @@
 
 
                 <div class="col-md-6 col-sm-12">
-                    <form id="register-form"name="registration">
+                    <form method="post" id="register-form"name="registration">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="mb-3">
@@ -1277,18 +1277,18 @@
                                 id="budget" required
                               >
                                 <option disabled className="bg-info text-white" selected>
-                                  Select your budget
+                                  Select Your Budget
                                 </option>
                                 <option value="Less then $10kLess then $10k">
-                                  Less then $10kLess then $10k
+                                  Less than £10K
                                 </option>
                                 <option value="Less then $10k to $50k">
-                                  Less then $10k to $50k
+                                  Between £10K to £50K
                                 </option>
                                 <option value="Less then $50k to $100">
-                                  Less then $50k to $100
+                                    Between £50k to £100K
                                 </option>
-                                <option value="More then $100k">More then $100k</option>
+                                <option value="More then $100k">More than to £100K</option>
                               </select>
                                 <!-- ===================== -->
                                
@@ -1730,56 +1730,66 @@ $(document).ready(function () {
       swal("Submitted ", "Thank You For Contacting Us. We will get back to you within working hours.", "success");
 
       console.log(mainVal);
+
+     $(this).closest('form').find("mainVal").val("");
+
     });
   });
 });
 
 // for footer email api calling form
-$(document).ready(function () {
-  $("#footerform").submit(function (e) {
-    e.preventDefault();
-    var footerVal = {
-      email: $("#footeremail").val(),
-    };
+// $(document).ready(function () {
+//   $("#footerform").submit(function (e) {
+//     e.preventDefault();
+//     var footerVal = {
+//       email: $("#footeremail").val(),
+//     };
 
-    $(".error").remove();
 
+
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "http://3.9.246.8/api/common/email-form",
+    //     data: footerVal,
+    //     dataType: "json",
+    //     encode: true,
+    //   }).done(function (data) {
+    //     $(this).prop("disabled", true);
+    //     console.log(data);
+    //     swal("success!", "mail send!");
+    //   });
+
+
+//     swal("failed!", "please try again!");
  
-      $.ajax({
-        type: "POST",
-        url: "http://3.9.246.8/api/common/email-form",
-        data: footerVal,
-        dataType: "json",
-        encode: true,
-      }).done(function (data) {
-        $(this).prop("disabled", true);
-        console.log(data);
-        swal("success!", "mail send!");
-      });
 
-  });
-});
+//     $(this).closest('form').find("#footeremail").val("");
+      
 
-
-
-// $('form[id="footerform"]').validate({
-
-
-//   rules: {
-//     email: {
-//       required: true,
-//       email: true,
-//     },
-//   },
-//   messages: {
-//     user_email: 'Enter a valid email',
-
-//   },
-//   submitHandler: function(form) {
-//     form.submit(e);
-//     console.log(e,"sgasdg")
-//   }
+//   });
 // });
+
+
+
+$('form[id="footerform"]').validate({
+  rules: {
+    email: {
+      required: true,
+      email: true,
+    },
+  },
+  messages: {
+    user_email: 'Enter a valid email',
+  },
+  submitHandler: function(form) {
+    e.preventDefault();
+
+
+    swal("failed!", "please try again!");
+
+  }
+});
 
 
 $(document).ready(function () {

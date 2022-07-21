@@ -51,7 +51,7 @@
             <div class="tph-10">
 
                 <div class="d-flex top-contact-info justify-content-md-end justify-content-sm-center">
-                    <div class="d-flex align-items-center ms-4">
+                    <div class="d-flex align-items-center ms-4" onclick="scrollToTop()">
                         <img src="images/uk_logo.png" width="40px">
                         <a class="numb" href="tel:0800-0016001">0800 0016001</a>
                         <!-- <p class="m-0">0800 0016001</p> -->
@@ -107,6 +107,8 @@
 
     <section class="hero-sec" >
         <img class="hero-image" src="images/home_logo.jpg">
+
+        <img class="mobile-image" src="images/mobile_image.jpg">
         <div class="image-overlay text-white">
             <!-- <h3 class="over-text">Taking your<br>business to <span class="tnl1 position-relative">the next level</span>
             </h3> -->
@@ -118,8 +120,8 @@
    <div class="row align-items-center justify-content-start h-100 text-sm-center text-lg-start text-md-start">
     <div class="col-lg-6 col-md-6 col-sm-12 home_text">
        <h3 class=" fw-bolder">taking your business to the next level.</h3>
-       <p style="font-size:1.3rem;color: rgb(255, 255, 255);">We Successfully Deliver Mobile Apps, Websites, and Games that are fully customisable and created specifically to your requirements.</p>
-       <p style="font-size:1.1rem;color: rgb(255, 255, 255);">We always strive for excellence with each and every Mobile App and Website we build.</p>
+       <p >We Successfully Deliver Mobile Apps, Websites, and Games that are fully customisable and created specifically to your requirements.</p>
+       <p>We always strive for excellence with each and every Mobile App and Website we build.</p>
       <a href="#contact-sec"><button class="btn btn-danger mt-3">Get In Touch</button></a> 
     </div>
    </div>
@@ -518,10 +520,10 @@
 
                     <div class="Industries-content d-flex align-items-center">
                         <div class="inds-icon-left">
-                            <img src="images/Retali&E-Commerce.png">
+                            <img src="images/Retail&E-Commerce.png">
                         </div>
                         <div class="inds-name">
-                            <p class="text-center m-0">Retali &<br>E-Commerce</p>
+                            <p class="text-center m-0">Retail &<br>E-Commerce</p>
                         </div>
 
                     </div>
@@ -595,7 +597,7 @@
         <div class="container">
             <h1 class="pwf-head position-relative text-center"><span>Process We</span><span
                     class="pwf position-relative"> Follow </span></h1>
-            <div class="row">
+            <div class="row flex-reverse">
                 <div class="col-md-5">
                     <div class="">
                         <img src="images/statergy.jpg" width="100%">
@@ -648,7 +650,7 @@
 
 
 
-            <div class="row">
+            <div class="row flex-reverse">
                 <div class="col-md-5">
                     <div class="">
                         <img src="images/design.jpg" width="100%">
@@ -710,7 +712,7 @@
 
 
 
-            <div class="row">
+            <div class="row flex-reverse">
                 <div class="col-md-5">
                     <div class="">
                         <img src="images/development.jpg" width="100%">
@@ -778,7 +780,7 @@
 
 
 
-            <div class="row">
+            <div class="row flex-reverse">
                 <div class="col-md-5">
                     <div class="">
                         <img src="images/launch.jpg" width="100%">
@@ -1829,6 +1831,12 @@ $("#contact").click(function() {
         scrollTop: $("#contact-sec").offset().top
     }, 0);
 });
+
+
+
+function scrollToTop() {
+            window.scrollTo(0, 0);
+        }
 
     </script>
 

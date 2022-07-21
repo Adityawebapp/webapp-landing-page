@@ -77,10 +77,10 @@
         </section>
 
 
-        <header class="main-menu " id="navbar_top">
+        <header class="main-menu" id="navbar_top">
             <nav class="navbar navbar-expand-lg" id="main-head">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="images/logo.png" width="140px"></a>
+                    <a class="navbar-brand" ><img src="images/logo.png" width="140px" id="home_top"></a>
                     <button id="nav-m-btn" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#Mobi-nav" aria-controls="Mobi-nav" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -92,12 +92,10 @@
                     </button>
                     <div class="collapse navbar-collapse" id="Mobi-nav">
                         <div class="navbar-nav" id="menu1">
-                            <a class="nav-link cntct" aria-current="page" href="#about-us">About Us</a>
-                            <a class="nav-link cntct" aria-current="page" href="#services">Services</a>
-                            <a class="nav-link cntct" aria-current="page" href="#industries-we-serve">Industries</a>
-                            <a class="nav-link cntct" aria-current="page" href="#contact-sec" id="cnct-a">Contact Us</a>
-
-
+                            <a class="nav-link cntct scrollto pointer" aria-current="page" id="about" >About</a>
+                            <a class="nav-link cntct scrollto pointer" aria-current="page" id="service" >Services</a>
+                            <a class="nav-link cntct scrollto pointer" aria-current="page" id="industries">Industries</a>
+                            <a class="nav-link cntct scrollto pointer" id="contact">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +105,7 @@
 
 
 
-    <section class="hero-sec">
+    <section class="hero-sec" >
         <img class="hero-image" src="images/home_logo.jpg">
         <div class="image-overlay text-white">
             <!-- <h3 class="over-text">Taking your<br>business to <span class="tnl1 position-relative">the next level</span>
@@ -439,7 +437,7 @@
         </div>
     </section>
 
-    <section class="industries-serve mrgn-6" id="industries-we-serve">
+    <section class="industries-serve" id="industries-we-serve" style="padding-top:5rem ;" > 
         <div class="container">
             <h1 class="inds-srv text-center"><span class="indt position-relative"> Industries We </span><span
                     class="sve"> Serve </span></h1>
@@ -473,7 +471,6 @@
                             <img src="images/Food&Restaurant.png">
                         </div>
                     </div>
-
 
                     <div class="Industries-content d-flex align-items-center">
                         <div class="inds-name">
@@ -1800,7 +1797,45 @@ $(document).ready(function () {
   }, 2000);
 });
 
+
+
+$("#home_top").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#navbar_top").offset().top
+    }, 0);
+});
+
+$("#about").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#about-us").offset().top
+    }, 0);
+});
+
+$("#service").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#services").offset().top
+    }, 0);
+});
+
+$("#industries").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#industries-we-serve").offset().top
+    }, 0);
+});
+
+
+$("#contact").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#contact-sec").offset().top
+    }, 0);
+});
+
     </script>
+
+   
+
+
+    
 </body>
 
 </html>
